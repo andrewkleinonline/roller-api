@@ -28,7 +28,7 @@ RSpec.describe Roll, type: :model do
     it 'is not valid when it has a negative start time' do
       roll = Roll.new(title: 'Bang', start_time: -5, end_time: 23, youtube_identifier: 'lYbYoaBrXpU')
       roll.valid?
-      expect(roll.errors[:start_time]).to include("must be greater than or equal to 0".)
+      expect(roll.errors[:start_time]).to include("must be greater than or equal to 0")
     end
 
     it 'is not valid when it does not have an end time' do
@@ -47,6 +47,18 @@ RSpec.describe Roll, type: :model do
       roll = Roll.new(title: 'Bang', start_time: 19, end_time: 23)
       roll.valid?
       expect(roll.errors[:youtube_identifier]).to include("can't be blank")
+    end
+
+    it 'is not valid when the youtube identifier contains at least one character other than a-z, A-Z, 0-9, _, and -.' do
+      roll = Roll.new(title: 'Bang', start_time: 19, end_time: 23, youtube_identifier: 'lYbYo?BrXpU')
+      #Error message will likely be set in custom validation -- can add here later
+      expect(roll).to_not be_valid
+    end
+
+    it 'is not valid when the youtube identifier is not 11 characters long' do
+      roll = Roll.new(title: 'Bang', start_time: 19, end_time: 23, youtube_identifier: 'lYbYoaBrX')
+      #Error message will likely be set in custom validation -- can add here later
+      expect(roll).to_not be_valid
     end
   end
 
