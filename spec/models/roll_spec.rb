@@ -25,7 +25,13 @@ RSpec.describe Roll, type: :model do
       expect(roll.errors[:start_time]).to include("can't be blank")
     end
 
-    it 'is not valid when it does not have a start time' do
+    it 'is not valid when it has a negative start time' do
+      roll = Roll.new(title: 'Rick Roll', start_time: -5, end_time: 23, youtube_identifier: 'lYbYoaBrXpU')
+      roll.valid?
+      expect(roll.errors[:start_time]).to include("can't be blank")
+    end
+
+    it 'is not valid when it does not have an end time' do
       roll = Roll.new(title: 'Rick Roll', start_time: 19, youtube_identifier: 'lYbYoaBrXpU')
       roll.valid?
       expect(roll.errors[:end_time]).to include("can't be blank")
