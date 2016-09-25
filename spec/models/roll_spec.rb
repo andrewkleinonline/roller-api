@@ -37,6 +37,12 @@ RSpec.describe Roll, type: :model do
       expect(roll.errors[:end_time]).to include("can't be blank")
     end
 
+    it 'is not valid when the end time is before the start time' do
+      roll = Roll.new(title: 'Rick Roll', start_time: 19, end_time: 10, youtube_identifier: 'lYbYoaBrXpU')
+      #Error message will likely be set in custom validation -- can add here later
+      expect(roll).to_not be_valid
+    end
+
     it 'is not valid when it does not have a youtube uri' do
       roll = Roll.new(title: 'Rick Roll', start_time: 19, end_time: 23)
       roll.valid?
