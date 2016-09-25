@@ -13,6 +13,12 @@ RSpec.describe Roll, type: :model do
       expect(roll.errors[:title]).to include("can't be blank")
     end
 
+    it 'is not valid when the title is over 50 characters long' do
+      roll = Roll.new(title: 'Rick rolls his friends. They are startled, but decide to maintain their friendship. After all, Rick is a good guy.', start_time: 19, end_time: 23, youtube_uri: 'lYbYoaBrXpU')
+      roll.valid?
+      expect(roll.errors[:title]).to include("is too long (maximum is 50 characters)")
+    end
+
     it 'is not valid when it does not have a start time' do
       roll = Roll.new(title: 'Rick Roll', end_time: 23, youtube_uri: 'lYbYoaBrXpU')
       roll.valid?
