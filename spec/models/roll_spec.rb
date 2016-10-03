@@ -7,5 +7,4 @@ RSpec.describe Roll, type: :model do
       expect(roll).to be_valid
     end
   end
-
 end
