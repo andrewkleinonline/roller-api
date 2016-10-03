@@ -16,8 +16,12 @@ ActiveRecord::Schema.define(version: 20160925221903) do
   enable_extension "plpgsql"
 
   create_table "rolls", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.string   "youtube_identifier"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "tags", force: :cascade do |t|
