@@ -30,12 +30,12 @@ RSpec.describe Tag, type: :model do
   it 'knows about its rolls' do
     roll1 = Roll.create(title: 'Bang', start_time: 19, end_time: 23, youtube_identifier: 'lYbYoaBrXpU')
     roll2 = Roll.create(title: 'Believe in Me!', start_time: 5, end_time: 11, youtube_identifier: 'BwFNWyqHHyY')
-    tag = Tag.create('anime')
+    tag = Tag.create(name: 'anime')
 
     tag.rolls << roll1
     tag.rolls << roll2
 
-    expect(tag.rolls[0].title).to be('Bang')
-    expect(tag.rolls[1].title).to be('Believe in Me!')
+    expect(tag.rolls[0].title).to eq('Bang')
+    expect(tag.rolls[1].title).to eq('Believe in Me!')
   end
 end
