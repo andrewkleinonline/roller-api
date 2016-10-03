@@ -35,7 +35,7 @@ RSpec.describe Tag, type: :model do
     tag.rolls << roll1
     tag.rolls << roll2
 
-    expect(tag.rolls[0].title).to be('Bang')
-    expect(tag.rolls[1].title).to be('Believe in Me!')
+    expect(tag.rolls[0].title).to eq('Bang')
+    expect(tag.rolls[1].title).to eq('Believe in Me!')
   end
 end

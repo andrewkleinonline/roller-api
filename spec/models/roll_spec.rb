@@ -72,7 +72,7 @@ RSpec.describe Roll, type: :model do
     roll.tags << tag1
     roll.tags << tag2
 
-    expect(roll.tags[0].name).to be('surprise')
-    expect(roll.tags[1].name).to be('anime')
+    expect(roll.tags[0].name).to eq('surprise')
+    expect(roll.tags[1].name).to eq('anime')
   end
 end
