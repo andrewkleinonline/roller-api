@@ -1,4 +1,6 @@
 class Roll < ApplicationRecord
+  has_and_belongs_to_many :tags
+
   validates :title, :start_time, :end_time, :youtube_identifier, presence: true
   validates :title, length: { maximum: 50 }
   validates :start_time, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
