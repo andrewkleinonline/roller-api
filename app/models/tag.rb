@@ -1,3 +1,6 @@
 class Tag < ApplicationRecord
   validates :name, presence: true
-end
+  validates :name, length: { maximum: 16 }
+
+  validates :name, format: { with: /\A[a-z ]+\z/ }
+  end
