@@ -18,7 +18,7 @@ describe "Roller API Tags" do
       end
 
       context "does not exist" do
-        it 'does not return a JSON collection of the tags and returns a 404 error' do
+        it 'does not return a JSON collection of the tag and returns a 404 error' do
           get '/api/v1/tags/0'
           response_body = JSON.parse(response.body)
           expect(response.status).to eq(404)
