@@ -40,7 +40,6 @@ describe "Roller API" do
     end
   end
 
-
   describe 'post /rolls' do
     context "is valid and saves to database" do
       it 'returns a JSON collection of a single roll' do
@@ -61,40 +60,3 @@ describe "Roller API" do
   end
 
 end
-
-  # describe 'post /rolls/:id' do
-  #   context "is valid" do
-  #     it '' do
-  #     end
-  #   end
-
-  #   context "is invalid" do
-  #     it '' do
-  #     end
-  #   end
-  # end
-
-  # describe 'patch /rolls/:id' do
-  #   context "is valid" do
-  #     it '' do
-  #     end
-  #   end
-
-  #   context "is invalid" do
-  #     it '' do
-  #     end
-  #   end
-  # end
-
-  # describe 'destroy /rolls/:id' do
-  #   context "is valid" do
-  #     it '' do
-  #     end
-  #   end
-
-  #   context "is invalid" do
-  #     it '' do
-  #     end
-  #   end
-  # end
-

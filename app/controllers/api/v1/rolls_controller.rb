@@ -14,6 +14,21 @@ module Api
       end
 
 
+      def create
+        roll = Roll.new(roll_params)
+
+        if roll.save
+          render json: roll, status: 200
+        else
+          render json: roll.errors, status: 400
+        end
+      end
+
+      private
+
+      def roll_params
+        params.require(:roll).permit(:title, :start_time, :end_time, :youtube_identifier)
+      end
     end
   end
 end
