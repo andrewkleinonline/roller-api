@@ -12,6 +12,8 @@ module Api
           render json: {errors: "A Roll with that ID was not found."}.to_json, status: 404
         end
       end
+
+
     end
   end
 end
