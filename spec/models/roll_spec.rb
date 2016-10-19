@@ -74,6 +74,5 @@ RSpec.describe Roll, type: :model do
 
     expect(roll.tags[0].name).to eq('surprise')
     expect(roll.tags[1].name).to eq('anime')
-
   end
 end
