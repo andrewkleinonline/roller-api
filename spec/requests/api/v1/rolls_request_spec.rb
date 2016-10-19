@@ -30,7 +30,7 @@ describe "Roller API Rolls" do
       end
 
       context "does not exist" do
-        it 'does not return a JSON collection of the rolls and returns a 404 error' do
+        it 'does not return a JSON collection of the roll and returns a 404 error' do
           get '/api/v1/rolls/0'
           response_body = JSON.parse(response.body)
           expect(response.status).to eq(404)
